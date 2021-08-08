@@ -6,7 +6,7 @@
   "fitbit": {
     "appUUID": "59aa744a-0dd5-4479-843d-8e41f8199c2f",
     "appType": "clockface",
-    "appDisplayName": "clock3",
+    "appDisplayName": "Targitsy",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
     "requestedPermissions": [
