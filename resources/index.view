@@ -1,0 +1,208 @@
+<svg class="background">
+  <defs>
+    <symbol id="arcs">
+      <arc id="arcBg" fill="inherit" arc-width="25" start-angle="270" sweep-angle="270" opacity="0.1" class="statItem" />  
+      <arc id="arcMid" fill="inherit" arc-width="1" start-angle="270" sweep-angle="270" class="statItem" />
+      <arc id="arcFg" fill="inherit" arc-width="10" start-angle="270" sweep-angle="0" class="statItem" />  
+      <circle id="arcTipBg" cx="193" r="8" fill="#212121" /> 
+      <circle id="arcTip" cx="193" r="8" fill="inherit" opacity="0" class="statItem" />
+      <line id="line1" x1="178" x2="158" fill="inherit" stroke-width="1" class="statItem" />
+      <line id="line2" x1="158" x2="158" fill="inherit" stroke-width="1" class="statItem" />
+    </symbol>
+  </defs>
+  <gradientRect width="100%" height="100%"
+    gradient-type="linear"
+    gradient-x1="50" gradient-y1="0"
+    gradient-x2="50%" gradient-y2="0"
+    gradient-color1="#000000" gradient-color2="#323232" />
+  <text id="time" /><text id="secs" />
+  <text id="date" />
+  <section id="heartRate">
+    <image id="heart" href="img/heart.png" x="0" y="0" width="18" height="18" fill="#d32f2f" class="hrm" /><text id="hr" class="hrm" />
+  </section>
+  <section id="battery">
+    <image id="batteryIm" href="img/battery.png" x="0" y="0" width="42" height="18" class="battery" />
+    <image id="batcharge" href="img/battery-charging.png" x="0" y="0" width="42" height="18" class="battery" opacity="0" />
+    <rect x="4" y="3" width="30" height="12" class="battery" id="batlevindicator" />
+    <text id="batlev" class="battery"/>
+  </section>
+  <section id="statsContainer">
+    <use href="#arcs" fill="#e91e63" id="calories">
+      <set href="arcBg" attributeName="x" to="60" />
+      <set href="arcBg" attributeName="y" to="60" />
+      <set href="arcBg" attributeName="width" to="266" />
+      <set href="arcBg" attributeName="height" to="266" />
+      <set href="arcMid" attributeName="x" to="72" />
+      <set href="arcMid" attributeName="y" to="72" />
+      <set href="arcMid" attributeName="width" to="242" />
+      <set href="arcMid" attributeName="height" to="242" />
+      <set href="arcFg" attributeName="x" to="67" />
+      <set href="arcFg" attributeName="y" to="67" />
+      <set href="arcFg" attributeName="width" to="252" />
+      <set href="arcFg" attributeName="height" to="252" />
+      <set href="arcFg" attributeName="id" to="arc1" />
+      <set href="arcTip" attributeName="cy" to="314" />
+      <set href="arcTipBg" attributeName="cy" to="314" />
+      <set href="arcTip" attributeName="id" to="circ1" />
+      <set href="line1" attributeName="y1" to="314" />
+      <set href="line1" attributeName="y2" to="314" />
+      <set href="line2" attributeName="y1" to="310" />
+      <set href="line2" attributeName="y2" to="318" />
+    </use>
+  
+  <!--line x1="178" y1="314" x2="158" y2="314" fill="#e91e63" stroke-width="1" />
+  <line x1="158" y1="310" x2="158" y2="318" fill="#e91e63" stroke-width="1" /-->
+  <text fill="#e91e63" id="calorieCount" class="stat" x="148" y="320" />
+  
+    <use href="#arcs" fill="#536dfe" id="steps">
+      <set href="arcBg" attributeName="x" to="85" />
+      <set href="arcBg" attributeName="y" to="85" />
+      <set href="arcBg" attributeName="width" to="216" />
+      <set href="arcBg" attributeName="height" to="216" />
+      <set href="arcMid" attributeName="x" to="97" />
+      <set href="arcMid" attributeName="y" to="97" />
+      <set href="arcMid" attributeName="width" to="192" />
+      <set href="arcMid" attributeName="height" to="192" />
+      <set href="arcFg" attributeName="x" to="92" />
+      <set href="arcFg" attributeName="y" to="92" />
+      <set href="arcFg" attributeName="width" to="202" />
+      <set href="arcFg" attributeName="height" to="202" />
+      <set href="arcFg" attributeName="id" to="arc2" />
+      <set href="arcTip" attributeName="cy" to="289" />
+      <set href="arcTipBg" attributeName="cy" to="289" />
+      <set href="arcTip" attributeName="id" to="circ2" />
+      <set href="line1" attributeName="y1" to="289" />
+      <set href="line1" attributeName="y2" to="289" />
+      <set href="line2" attributeName="y1" to="285" />
+      <set href="line2" attributeName="y2" to="293" />
+    </use>
+    
+  <!--arc x="85" y="85" width="216" height="216" fill="#536dfe"
+    arc-width="25" start-angle="290" sweep-angle="250" opacity="0.1" />
+  <arc x="97" y="97" width="192" height="192" fill="#536dfe"
+    arc-width="1" start-angle="290" sweep-angle="250" />
+  <arc x="92" y="92" width="202" height="202" fill="#536dfe"
+    arc-width="10" start-angle="290" sweep-angle="150"  />
+  <circle cx="193" cy="289" r="8" fill="#536dfe" /-->
+  
+  <!--line x1="178" y1="289" x2="158" y2="289" fill="#536dfe" stroke-width="1" />
+  <line x1="158" y1="285" x2="158" y2="293" fill="#536dfe" stroke-width="1" /-->
+  <text id="stepsCount" fill="#536dfe" class="stat" x="148" y="295"></text>
+
+    <use href="#arcs" fill="#cddc39" id="distance">
+      <set href="arcBg" attributeName="x" to="110" />
+      <set href="arcBg" attributeName="y" to="110" />
+      <set href="arcBg" attributeName="width" to="166" />
+      <set href="arcBg" attributeName="height" to="166" />
+      <set href="arcMid" attributeName="x" to="122" />
+      <set href="arcMid" attributeName="y" to="122" />
+      <set href="arcMid" attributeName="width" to="142" />
+      <set href="arcMid" attributeName="height" to="142" />
+      <set href="arcFg" attributeName="x" to="117" />
+      <set href="arcFg" attributeName="y" to="117" />
+      <set href="arcFg" attributeName="width" to="152" />
+      <set href="arcFg" attributeName="height" to="152" />
+      <set href="arcFg" attributeName="id" to="arc3" />
+      <set href="arcTip" attributeName="cy" to="264" />
+      <set href="arcTipBg" attributeName="cy" to="264" />
+      <set href="arcTip" attributeName="id" to="circ3" />
+      <set href="line1" attributeName="y1" to="264" />
+      <set href="line1" attributeName="y2" to="264" />
+      <set href="line2" attributeName="y1" to="260" />
+      <set href="line2" attributeName="y2" to="268" />
+    </use>
+    
+  <!--arc x="110" y="110" width="166" height="166" fill="#cddc39"
+    arc-width="25" start-angle="290" sweep-angle="250" opacity="0.1" />
+  <arc x="122" y="122" width="142" height="142" fill="#cddc39"
+    arc-width="1" start-angle="290" sweep-angle="250" />
+  <arc x="117" y="117" width="152" height="152" fill="#cddc39"
+    arc-width="10" start-angle="290" sweep-angle="250"  />
+  <circle cx="193" cy="264" r="8" fill="#cddc39" /-->
+  
+    
+  <!--line x1="178" y1="264" x2="158" y2="264" fill="#cddc39" stroke-width="1" />
+  <line x1="158" y1="260" x2="158" y2="268" fill="#cddc39" stroke-width="1" /-->
+  <text id="distanceCount" fill="#cddc39" class="stat" x="148" y="270" />
+
+    <use href="#arcs" fill="#00796b" id="activeMinutes">
+      <set href="arcBg" attributeName="x" to="135" />
+      <set href="arcBg" attributeName="y" to="135" />
+      <set href="arcBg" attributeName="width" to="116" />
+      <set href="arcBg" attributeName="height" to="116" />
+      <set href="arcMid" attributeName="x" to="147" />
+      <set href="arcMid" attributeName="y" to="147" />
+      <set href="arcMid" attributeName="width" to="92" />
+      <set href="arcMid" attributeName="height" to="92" />
+      <set href="arcFg" attributeName="x" to="142" />
+      <set href="arcFg" attributeName="y" to="142" />
+      <set href="arcFg" attributeName="width" to="102" />
+      <set href="arcFg" attributeName="height" to="102" />
+      <set href="arcFg" attributeName="id" to="arc4" />
+      <set href="arcTip" attributeName="cy" to="239" />
+      <set href="arcTipBg" attributeName="cy" to="239" />
+      <set href="arcTip" attributeName="id" to="circ4" />
+      <set href="line1" attributeName="y1" to="239" />
+      <set href="line1" attributeName="y2" to="239" />
+      <set href="line2" attributeName="y1" to="235" />
+      <set href="line2" attributeName="y2" to="243" />
+    </use>
+    
+  <!--arc x="135" y="135" width="116" height="116" fill="#00796b"
+    arc-width="25" start-angle="290" sweep-angle="250" opacity="0.1" />
+  <arc x="147" y="147" width="92" height="92" fill="#00796b"
+    arc-width="1" start-angle="290" sweep-angle="250" />
+  <arc x="142" y="142" width="102" height="102" fill="#00796b"
+    arc-width="10" start-angle="290" sweep-angle="95" />
+  <circle cx="193" cy="239" r="8" fill="#00796b" /-->
+  
+  <!--line x1="178" y1="239" x2="158" y2="239" fill="#00796b" stroke-width="1" />
+  <line x1="158" y1="235" x2="158" y2="243" fill="#00796b" stroke-width="1" /-->
+  <text id="activeZoneCount" fill="#00796b" class="stat" x="148" y="245" />
+
+    <use href="#arcs" fill="#9c27b0" id="floors">
+      <set href="arcBg" attributeName="x" to="160" />
+      <set href="arcBg" attributeName="y" to="160" />
+      <set href="arcBg" attributeName="width" to="66" />
+      <set href="arcBg" attributeName="height" to="66" />
+      <set href="arcMid" attributeName="x" to="172" />
+      <set href="arcMid" attributeName="y" to="172" />
+      <set href="arcMid" attributeName="width" to="42" />
+      <set href="arcMid" attributeName="height" to="42" />
+      <set href="arcFg" attributeName="x" to="167" />
+      <set href="arcFg" attributeName="y" to="167" />
+      <set href="arcFg" attributeName="width" to="52" />
+      <set href="arcFg" attributeName="height" to="52" />
+      <set href="arcFg" attributeName="id" to="arc5" />
+      <set href="arcTip" attributeName="cy" to="214" />
+      <set href="arcTipBg" attributeName="cy" to="214" />
+      <set href="arcTip" attributeName="id" to="circ5" />
+      <set href="line1" attributeName="y1" to="214" />
+      <set href="line1" attributeName="y2" to="214" />
+      <set href="line2" attributeName="y1" to="210" />
+      <set href="line2" attributeName="y2" to="218" />
+    </use>
+    
+  <!--arc x="160" y="160" width="66" height="66" fill="#7b1fa2"
+    arc-width="25" start-angle="290" sweep-angle="250" opacity="0.1" />
+  <arc x="172" y="172" width="42" height="42" fill="#7b1fa2"
+    arc-width="1" start-angle="290" sweep-angle="250" />
+  <arc x="167" y="167" width="52" height="52" fill="#7b1fa2"
+    arc-width="10" start-angle="290" sweep-angle="158" />
+  <circle cx="193" cy="214" r="8" fill="#7b1fa2" /-->
+  
+  <!--line x1="178" y1="214" x2="158" y2="214" fill="#9c27b0" stroke-width="1" />
+  <line x1="158" y1="210" x2="158" y2="218" fill="#9c27b0" stroke-width="1" /-->
+  <text id="floorsCount" fill="#9c27b0" class="stat" x="148" y="220" />
+  </section>
+  <!--circle cx="86" cy="126" r="27" fill="#000000" />
+  <circle cx="85" cy="125" r="25" fill="#e91e63" />
+  <image href="img/calories.png" x="60" y="100" width="50" height="50" /-->
+  
+  <!--circle cx="240" cy="80" r="24" fill="#e91e63" />
+  <image href="img/distance.png" x="220" y="60" width="40" height="40"  class="bgFill"/>
+  <circle cx="144" cy="110" r="15" fill="#536dfe" />
+  <circle cx="260" cy="210" r="15" fill="#cddc39" />
+  <circle cx="190" cy="147" r="15" fill="#00796b" />
+  <circle cx="210" cy="190" r="15" fill="#7b1fa2" / -->
+</svg>
