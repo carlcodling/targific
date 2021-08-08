@@ -3,6 +3,11 @@ import { settingsStorage } from "settings";
 
 import {defaultSettings} from "../../common/defaults"
 
+// send settings to device when peerSocket opens
+messaging.peerSocket.onopen = () => {
+  restoreSettings();
+};
+
 export function initialize() {
   //settingsStorage.clear();
   console.log("SETTINGS "+settingsStorage.getItem("df"))
@@ -38,5 +43,18 @@ function setup(){
 
   for (const key in defaults) {
     settingsStorage.setItem(key, defaults[key]);
+  }
+}
+
+function restoreSettings(){
+  for (let index = 0; index < settingsStorage.length; index++) {
+    let key = settingsStorage.key(index);
+    if (key) {
+      let data = {
+        key: key,
+        value: JSON.parse(settingsStorage.getItem(key))
+      };
+      sendSettingData(data);
+    }
   }
 }
