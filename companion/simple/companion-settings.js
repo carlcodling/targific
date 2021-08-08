@@ -1,6 +1,8 @@
 import * as messaging from "messaging";
 import { settingsStorage } from "settings";
 
+import {defaultSettings} from "../../common/defaults"
+
 export function initialize() {
   //settingsStorage.clear();
   console.log("SETTINGS "+settingsStorage.getItem("df"))
@@ -32,14 +34,9 @@ function sendSettingData(data) {
 }
 
 function setup(){
-  settingsStorage.setItem('colorCalories', "#e91e63");
-  settingsStorage.setItem('colorSteps', "#536dfe");
-  settingsStorage.setItem('colorDistance', "#cddc39");
-  settingsStorage.setItem('colorAZ', "#00796b");
-  settingsStorage.setItem('colorFloors', "#9c27b0");
-  settingsStorage.setItem('dateFormat', "3");
-  settingsStorage.setItem('displaySeconds', "true");
-  settingsStorage.setItem('displayHR', "true");
-  settingsStorage.setItem('displayBattery', "true");
-  settingsStorage.setItem('df', "{\"selected\":[2]}");
+  let defaults = defaultSettings();
+
+  for (const key in defaults) {
+    settingsStorage.setItem(key, defaults[key]);
+  }
 }
