@@ -1,19 +1,10 @@
-import clock from "clock";
 import * as document from "document";
-import { preferences, units } from "user-settings";
-import * as util from "../common/utils";
 
 import * as simpleActivity from "./simple/activity";
 import * as simpleClock from "./simple/clock";
 import * as simpleHRM from "./simple/hrm";
 import * as simpleBattery from "./simple/battery";
 import * as simpleSettings from "./simple/device-settings";
-
-//import { HeartRateSensor } from "heart-rate";
-
-import { me as appbit } from "appbit";
-import { goals } from "user-activity";
-import { today } from "user-activity";
 
 // Get a handle on the <text> element
 const uiTime = document.getElementById("time");
@@ -46,17 +37,17 @@ const batlev = document.getElementById("batlev");
 const batcharge = document.getElementById("batcharge");
 const batlevindicator = document.getElementById("batlevindicator");
 
-let batteryActive = true; 
-let dateActive = true; 
-let secondsActive = true; 
-let heartRateActive = true; 
+let batteryActive = true;
+let dateActive = true;
+let secondsActive = true;
+let heartRateActive = true;
 
 /* -------- SETTINGS -------- */
 function settingsCallback(data) {
   if (!data) {
     return;
   }
-  
+
   // set colours of the stat arcs
   if (data.colorCalories) {
     var container = document.getElementById("calories")
@@ -102,8 +93,8 @@ function settingsCallback(data) {
       x[i].style.fill = data.colorFloors;
     }
     txtFloors.style.fill = data.colorFloors;
-  }  
-  
+  }
+
   // show or hide seconds on clock + reset
   if (data.displaySeconds && !secondsActive){
     simpleClock.reset("seconds", clockCallback);
@@ -114,7 +105,7 @@ function settingsCallback(data) {
     uiSecs.text = "";
     secondsActive = false;
   }
-  
+
   // show/start or hide/stop the battery display
   if (data.displayBattery && !batteryActive){
     simpleBattery.initialize("seconds", batteryCallback);
@@ -126,7 +117,7 @@ function settingsCallback(data) {
     setVisibiltyByClass("battery", "hidden");
     batteryActive = false;
   }
-  
+
   // show/start or hide/stop the heart rate display
   if (data.displayHR && !heartRateActive){
     simpleHRM.initialize(hrmCallback);
@@ -138,7 +129,7 @@ function settingsCallback(data) {
     setVisibiltyByClass("hrm", "hidden");
     heartRateActive = false;
   }
-  
+
 }
 simpleSettings.initialize(settingsCallback);
 
@@ -214,43 +205,43 @@ if(simpleSettings.get("displayBattery")){
 
 /* ------- ACTIVITY --------- */
 function activityCallback(data) {
-  
+
   // calories
   txtCalorieCount.text = `${data.calories.pretty}`;
   var pcnt = (100/data.calories.goal)*data.calories.raw;
   if(pcnt>100) pcnt = 100;
   arc1.sweepAngle = Math.round(pcnt*2.7);
   circ1.style.opacity = pcnt*0.01;
-  
+
   // distance
   txtDistance.text = `${data.distance.pretty}`;
   var pcnt = (100/data.distance.goal)*data.distance.raw;
   if(pcnt>100) pcnt = 100;
   arc3.sweepAngle = Math.round(pcnt*2.7);
   circ3.style.opacity = pcnt*0.01;
-  
+
   // steps
   txtStepsCount.text = `${data.steps.pretty}`;
   var pcnt = (100/data.steps.goal)*data.steps.raw;
   if(pcnt>100) pcnt = 100;
   arc2.sweepAngle = Math.round(pcnt*2.7);
   circ2.style.opacity = pcnt*0.01;
-    
+
   // floors
   txtFloors.text = `${data.elevationGain.pretty}`;
   var pcnt = (100/data.elevationGain.goal)*data.elevationGain.raw;
   if(pcnt>100) pcnt = 100;
   arc5.sweepAngle = Math.round(pcnt*2.7);
   circ5.style.opacity = pcnt*0.01;
-    
+
   // active zone
   txtActiveZone.text = `${data.activeMinutes.pretty}`;
   var pcnt = (100/data.activeMinutes.goal)*data.activeMinutes.raw;
   if(pcnt>100) pcnt = 100;
   arc4.sweepAngle = Math.round(pcnt*2.7);
   circ4.style.opacity = pcnt*0.01;
-  
-  
+
+
 }
 simpleActivity.initialize("seconds", activityCallback);
 
