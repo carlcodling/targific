@@ -6,37 +6,45 @@ import * as simpleHRM from "./simple/hrm";
 import * as simpleBattery from "./simple/battery";
 import * as simpleSettings from "./simple/device-settings";
 
-// Get a handle on the <text> element
+// clock elements
 const uiTime = document.getElementById("time");
 const uiSecs = document.getElementById("secs");
 const uiDate = document.getElementById("date");
 const uiHR = document.getElementById("hr");
-const uiBattery = document.getElementById("battery");
 
 const imgHeart = document.getElementById("heart");
 
+// container elements for stat progress display
+const containerCalories = document.getElementById("calories");
+const containerSteps = document.getElementById("steps");
+const containerDistance = document.getElementById("distance");
+const containerAZ = document.getElementById("activeMinutes");
+const containerFloors = document.getElementById("floors");
+// text elements for stat progress display
 const txtCalorieCount = document.getElementById("calorieCount");
 const txtStepsCount = document.getElementById("stepsCount");
 const txtDistance = document.getElementById("distanceCount");
 const txtActiveZone = document.getElementById("activeZoneCount");
 const txtFloors = document.getElementById("floorsCount");
-
+// visual elements for stat progress display
 const arc1 = document.getElementById("arc1");
 const arc2 = document.getElementById("arc2");
 const arc3 = document.getElementById("arc3");
 const arc4 = document.getElementById("arc4");
 const arc5 = document.getElementById("arc5");
-
 const circ1 = document.getElementById("circ1");
 const circ2 = document.getElementById("circ2");
 const circ3 = document.getElementById("circ3");
 const circ4 = document.getElementById("circ4");
 const circ5 = document.getElementById("circ5");
 
+// battery elements
+const uiBattery = document.getElementById("battery");
 const batlev = document.getElementById("batlev");
 const batcharge = document.getElementById("batcharge");
 const batlevindicator = document.getElementById("batlevindicator");
 
+// handles for current display status
 let batteryActive = true;
 let dateActive = true;
 let secondsActive = true;
@@ -47,51 +55,25 @@ function settingsCallback(data) {
   if (!data) {
     return;
   }
-
   // set colours of the stat arcs
   if (data.colorCalories) {
-    var container = document.getElementById("calories")
-    var x = container.getElementsByClassName("statItem");
-    var i;
-    for (i = 0; i < x.length; i++) {
-      x[i].style.fill = data.colorCalories;
-    }
+    setFillByClass("statItem", data.colorCalories, containerCalories);
     txtCalorieCount.style.fill = data.colorCalories;
   }
   if (data.colorSteps) {
-    var container = document.getElementById("steps")
-    var x = container.getElementsByClassName("statItem");
-    var i;
-    for (i = 0; i < x.length; i++) {
-      x[i].style.fill = data.colorSteps;
-    }
+    setFillByClass("statItem", data.colorSteps, containerSteps);
     txtStepsCount.style.fill = data.colorSteps;
   }
   if (data.colorDistance) {
-    var container = document.getElementById("distance")
-    var x = container.getElementsByClassName("statItem");
-    var i;
-    for (i = 0; i < x.length; i++) {
-      x[i].style.fill = data.colorDistance;
-    }
+    setFillByClass("statItem", data.colorDistance, containerDistance);
     txtDistance.style.fill = data.colorDistance;
   }
   if (data.colorAZ) {
-    var container = document.getElementById("activeMinutes")
-    var x = container.getElementsByClassName("statItem");
-    var i;
-    for (i = 0; i < x.length; i++) {
-      x[i].style.fill = data.colorAZ;
-    }
+    setFillByClass("statItem", data.colorAZ, containerAZ);
     txtActiveZone.style.fill = data.colorAZ;
   }
   if (data.colorFloors) {
-    var container = document.getElementById("floors")
-    var x = container.getElementsByClassName("statItem");
-    var i;
-    for (i = 0; i < x.length; i++) {
-      x[i].style.fill = data.colorFloors;
-    }
+    setFillByClass("statItem", data.colorFloors, containerFloors);
     txtFloors.style.fill = data.colorFloors;
   }
 
@@ -193,11 +175,7 @@ function batteryCallback(data) {
   else if(data.level <=10){
     batColor = "#f44336";
   }
-  var x = document.getElementsByClassName("battery");
-  var i;
-  for (i = 0; i < x.length; i++) {
-    x[i].style.fill = batColor;
-  }
+  setFillByClass("battery", batColor);
 }
 if(simpleSettings.get("displayBattery")){
   simpleBattery.initialize("seconds", batteryCallback);
@@ -206,50 +184,59 @@ if(simpleSettings.get("displayBattery")){
 /* ------- ACTIVITY --------- */
 function activityCallback(data) {
 
-  // calories
-  txtCalorieCount.text = `${data.calories.pretty}`;
-  var pcnt = (100/data.calories.goal)*data.calories.raw;
-  if(pcnt>100) pcnt = 100;
-  arc1.sweepAngle = Math.round(pcnt*2.7);
-  circ1.style.opacity = pcnt*0.01;
-
-  // distance
-  txtDistance.text = `${data.distance.pretty}`;
-  var pcnt = (100/data.distance.goal)*data.distance.raw;
-  if(pcnt>100) pcnt = 100;
-  arc3.sweepAngle = Math.round(pcnt*2.7);
-  circ3.style.opacity = pcnt*0.01;
-
-  // steps
-  txtStepsCount.text = `${data.steps.pretty}`;
-  var pcnt = (100/data.steps.goal)*data.steps.raw;
-  if(pcnt>100) pcnt = 100;
-  arc2.sweepAngle = Math.round(pcnt*2.7);
-  circ2.style.opacity = pcnt*0.01;
-
-  // floors
-  txtFloors.text = `${data.elevationGain.pretty}`;
-  var pcnt = (100/data.elevationGain.goal)*data.elevationGain.raw;
-  if(pcnt>100) pcnt = 100;
-  arc5.sweepAngle = Math.round(pcnt*2.7);
-  circ5.style.opacity = pcnt*0.01;
-
-  // active zone
-  txtActiveZone.text = `${data.activeMinutes.pretty}`;
-  var pcnt = (100/data.activeMinutes.goal)*data.activeMinutes.raw;
-  if(pcnt>100) pcnt = 100;
-  arc4.sweepAngle = Math.round(pcnt*2.7);
-  circ4.style.opacity = pcnt*0.01;
-
-
+  // apply styles the statistic arcs and associated elements
+  styleArc(
+    txtCalorieCount,
+    data.calories,
+    arc1,
+    circ1
+  )
+  styleArc(
+    txtStepsCount,
+    data.steps,
+    arc2,
+    circ2
+  )
+  styleArc(
+    txtDistance,
+    data.distance,
+    arc3,
+    circ3
+  )
+  styleArc(
+    txtActiveZone,
+    data.activeMinutes,
+    arc4,
+    circ4
+  )
+  styleArc(
+    txtFloors,
+    data.elevationGain,
+    arc5,
+    circ5
+  )
+  function styleArc(txtElem, data, arcElem, circElem){
+    txtElem.text = `${data.pretty}`;
+    var pcnt = (100/data.goal)*data.raw;
+    if(pcnt>100) pcnt = 100;
+    arcElem.sweepAngle = Math.round(pcnt*2.7);
+    circElem.style.opacity = pcnt*0.01;
+  }
 }
 simpleActivity.initialize("seconds", activityCallback);
 
-
+/* ------- Helpers --------- */
 function setVisibiltyByClass(className, v){
   var x = document.getElementsByClassName(className);
   var i;
   for (i = 0; i < x.length; i++) {
     x[i].style.visibility = v;
+  }
+}
+function setFillByClass(className, v, container=document){
+  var x = container.getElementsByClassName(className);
+  var i;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.fill = v;
   }
 }
