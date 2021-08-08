@@ -4,8 +4,8 @@ import clock from "clock";
 
 let batteryCallback;
 
-export function initialize(granularity, callback) {
-  clock.granularity = granularity;
+export function initialize(callback) {
+  clock.granularity = "seconds";
   clock.addEventListener("tick", tickHandler);
   batteryCallback = callback;
 }
@@ -19,8 +19,8 @@ function tickHandler(evt) {
 }
 
 let batteryData = () => {
-  return {  
+  return {
     level: battery.chargeLevel,
     connected: charger.connected
-  };  
+  };
 }

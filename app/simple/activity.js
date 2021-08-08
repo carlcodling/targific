@@ -9,9 +9,9 @@ import { units } from "user-settings";
 
 let activityCallback;
 
-export function initialize(granularity, callback) {
+export function initialize(callback) {
   if (me.permissions.granted("access_activity")) {
-    clock.granularity = granularity;
+    clock.granularity = "seconds";
     clock.addEventListener("tick", tickHandler);
     activityCallback = callback;
   } else {
@@ -27,13 +27,13 @@ export function initialize(granularity, callback) {
 }
 
 let activityData = () => {
-  return {  
+  return {
     steps: getSteps(),
     calories: getCalories(),
     distance: getDistance(),
     elevationGain: getElevationGain(),
     activeMinutes: getActiveMinutes()
-  };  
+  };
 }
 
 function tickHandler(evt) {

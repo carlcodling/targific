@@ -90,7 +90,7 @@ function settingsCallback(data) {
 
   // show/start or hide/stop the battery display
   if (data.displayBattery && !batteryActive){
-    simpleBattery.initialize("seconds", batteryCallback);
+    simpleBattery.initialize(batteryCallback);
     setVisibiltyByClass("battery", "visible");
     batteryActive = true;
   }
@@ -178,7 +178,7 @@ function batteryCallback(data) {
   setFillByClass("battery", batColor);
 }
 if(simpleSettings.get("displayBattery")){
-  simpleBattery.initialize("seconds", batteryCallback);
+  simpleBattery.initialize(batteryCallback);
 }
 
 /* ------- ACTIVITY --------- */
@@ -223,7 +223,7 @@ function activityCallback(data) {
     circElem.style.opacity = pcnt*0.01;
   }
 }
-simpleActivity.initialize("seconds", activityCallback);
+simpleActivity.initialize(activityCallback);
 
 /* ------- Helpers --------- */
 function setVisibiltyByClass(className, v){
