@@ -38,7 +38,7 @@ export function exit(){
 }
 
 function getReading() {
-  if (hrm.timestamp === lastReading) {
+  if (hrm.timestamp == null || hrm.timestamp === lastReading) {
     heartRate = "--";
   } else {
     heartRate = hrm.heartRate;
