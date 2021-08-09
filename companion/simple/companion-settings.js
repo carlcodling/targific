@@ -10,8 +10,8 @@ messaging.peerSocket.onopen = () => {
 
 export function initialize() {
   //settingsStorage.clear();
-  console.log("SETTINGS "+settingsStorage.getItem("df"))
-  if(!settingsStorage.key("df")){ // is this the first run
+  if(settingsStorage.length < 1){ // is this the first run
+    console.log("SETUP DEFAULTS")
     setup();
   }
   settingsStorage.addEventListener("change", evt => {
@@ -22,23 +22,21 @@ export function initialize() {
 }
 
 function sendValue(key, val) {
-  if (val) {
-    let data = {
-      key: key,
-      value: JSON.parse(val)
-    }
-    if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
-      messaging.peerSocket.send(data);
-    } else {
-      console.log("No peerSocket connection");
-    }
+  let data = {
+    key: key,
+    value: JSON.parse(val)
+  }
+  if (messaging.peerSocket.readyState === messaging.peerSocket.OPEN) {
+    messaging.peerSocket.send(data);
+  } else {
+    console.log("No peerSocket connection");
   }
 }
 
 function setup(){
-  let defaults = defaultSettings();
+  let defaults = defaultSettings;
   for (const key in defaults) {
-    settingsStorage.setItem(key, defaults[key]);
+    settingsStorage.setItem(key, JSON.stringify(defaults[key]));
   }
 }
 
@@ -46,7 +44,8 @@ function restoreSettings(){
   for (let index = 0; index < settingsStorage.length; index++) {
     let key = settingsStorage.key(index);
     if (key) {
-      sendValue(key, settingsStorage.getItem(key));
+      let v = settingsStorage.getItem(key);
+      sendValue(key, v);
     }
   }
 }

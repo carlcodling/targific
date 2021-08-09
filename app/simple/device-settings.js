@@ -43,7 +43,7 @@ me.addEventListener("unload", saveSettings);
 // Load settings from filesystem
 function loadSettings() {
   if (!fs.existsSync("/private/data/"+SETTINGS_FILE)) {
-      let json_data = defaultSettings();
+      let json_data = defaultSettings;
       fs.writeFileSync(SETTINGS_FILE, json_data, SETTINGS_TYPE);
     }
   try {

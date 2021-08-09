@@ -1,10 +1,10 @@
 <svg class="background">
   <defs>
     <symbol id="arcs">
-      <arc id="arcBg" fill="inherit" arc-width="25" start-angle="270" sweep-angle="270" opacity="0.1" class="statItem" />  
+      <arc id="arcBg" fill="inherit" arc-width="25" start-angle="270" sweep-angle="270" opacity="0.2" class="statItem" type="arcBG" />
       <arc id="arcMid" fill="inherit" arc-width="1" start-angle="270" sweep-angle="270" class="statItem" />
-      <arc id="arcFg" fill="inherit" arc-width="10" start-angle="270" sweep-angle="0" class="statItem" />  
-      <circle id="arcTipBg" cx="193" r="8" fill="#212121" /> 
+      <arc id="arcFg" fill="inherit" arc-width="10" start-angle="270" sweep-angle="0" class="statItem" />
+      <circle id="arcTipBg" cx="193" r="8" fill="#212121" />
       <circle id="arcTip" cx="193" r="8" fill="inherit" opacity="0" class="statItem" />
       <line id="line1" x1="178" x2="158" fill="inherit" stroke-width="1" class="statItem" />
       <line id="line2" x1="158" x2="158" fill="inherit" stroke-width="1" class="statItem" />
@@ -49,11 +49,11 @@
       <set href="line2" attributeName="y1" to="310" />
       <set href="line2" attributeName="y2" to="318" />
     </use>
-  
+
   <!--line x1="178" y1="314" x2="158" y2="314" fill="#e91e63" stroke-width="1" />
   <line x1="158" y1="310" x2="158" y2="318" fill="#e91e63" stroke-width="1" /-->
   <text fill="#e91e63" id="calorieCount" class="stat" x="148" y="320" />
-  
+
     <use href="#arcs" fill="#536dfe" id="steps">
       <set href="arcBg" attributeName="x" to="85" />
       <set href="arcBg" attributeName="y" to="85" />
@@ -76,7 +76,7 @@
       <set href="line2" attributeName="y1" to="285" />
       <set href="line2" attributeName="y2" to="293" />
     </use>
-    
+
   <!--arc x="85" y="85" width="216" height="216" fill="#536dfe"
     arc-width="25" start-angle="290" sweep-angle="250" opacity="0.1" />
   <arc x="97" y="97" width="192" height="192" fill="#536dfe"
@@ -84,7 +84,7 @@
   <arc x="92" y="92" width="202" height="202" fill="#536dfe"
     arc-width="10" start-angle="290" sweep-angle="150"  />
   <circle cx="193" cy="289" r="8" fill="#536dfe" /-->
-  
+
   <!--line x1="178" y1="289" x2="158" y2="289" fill="#536dfe" stroke-width="1" />
   <line x1="158" y1="285" x2="158" y2="293" fill="#536dfe" stroke-width="1" /-->
   <text id="stepsCount" fill="#536dfe" class="stat" x="148" y="295"></text>
@@ -111,7 +111,7 @@
       <set href="line2" attributeName="y1" to="260" />
       <set href="line2" attributeName="y2" to="268" />
     </use>
-    
+
   <!--arc x="110" y="110" width="166" height="166" fill="#cddc39"
     arc-width="25" start-angle="290" sweep-angle="250" opacity="0.1" />
   <arc x="122" y="122" width="142" height="142" fill="#cddc39"
@@ -119,8 +119,8 @@
   <arc x="117" y="117" width="152" height="152" fill="#cddc39"
     arc-width="10" start-angle="290" sweep-angle="250"  />
   <circle cx="193" cy="264" r="8" fill="#cddc39" /-->
-  
-    
+
+
   <!--line x1="178" y1="264" x2="158" y2="264" fill="#cddc39" stroke-width="1" />
   <line x1="158" y1="260" x2="158" y2="268" fill="#cddc39" stroke-width="1" /-->
   <text id="distanceCount" fill="#cddc39" class="stat" x="148" y="270" />
@@ -147,7 +147,7 @@
       <set href="line2" attributeName="y1" to="235" />
       <set href="line2" attributeName="y2" to="243" />
     </use>
-    
+
   <!--arc x="135" y="135" width="116" height="116" fill="#00796b"
     arc-width="25" start-angle="290" sweep-angle="250" opacity="0.1" />
   <arc x="147" y="147" width="92" height="92" fill="#00796b"
@@ -155,7 +155,7 @@
   <arc x="142" y="142" width="102" height="102" fill="#00796b"
     arc-width="10" start-angle="290" sweep-angle="95" />
   <circle cx="193" cy="239" r="8" fill="#00796b" /-->
-  
+
   <!--line x1="178" y1="239" x2="158" y2="239" fill="#00796b" stroke-width="1" />
   <line x1="158" y1="235" x2="158" y2="243" fill="#00796b" stroke-width="1" /-->
   <text id="activeZoneCount" fill="#00796b" class="stat" x="148" y="245" />
@@ -182,7 +182,7 @@
       <set href="line2" attributeName="y1" to="210" />
       <set href="line2" attributeName="y2" to="218" />
     </use>
-    
+
   <!--arc x="160" y="160" width="66" height="66" fill="#7b1fa2"
     arc-width="25" start-angle="290" sweep-angle="250" opacity="0.1" />
   <arc x="172" y="172" width="42" height="42" fill="#7b1fa2"
@@ -190,7 +190,7 @@
   <arc x="167" y="167" width="52" height="52" fill="#7b1fa2"
     arc-width="10" start-angle="290" sweep-angle="158" />
   <circle cx="193" cy="214" r="8" fill="#7b1fa2" /-->
-  
+
   <!--line x1="178" y1="214" x2="158" y2="214" fill="#9c27b0" stroke-width="1" />
   <line x1="158" y1="210" x2="158" y2="218" fill="#9c27b0" stroke-width="1" /-->
   <text id="floorsCount" fill="#9c27b0" class="stat" x="148" y="220" />
@@ -198,7 +198,7 @@
   <!--circle cx="86" cy="126" r="27" fill="#000000" />
   <circle cx="85" cy="125" r="25" fill="#e91e63" />
   <image href="img/calories.png" x="60" y="100" width="50" height="50" /-->
-  
+
   <!--circle cx="240" cy="80" r="24" fill="#e91e63" />
   <image href="img/distance.png" x="220" y="60" width="40" height="40"  class="bgFill"/>
   <circle cx="144" cy="110" r="15" fill="#536dfe" />

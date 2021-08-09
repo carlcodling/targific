@@ -35,13 +35,13 @@ function tickHandler(evt) {
     hours = util.monoDigits(util.zeroPad(hours));
   }
   let mins = util.monoDigits(util.zeroPad(today.getMinutes()));
-  
+
   let secs = util.monoDigits(util.zeroPad(today.getSeconds()));
 
   let timeString = `${hours}:${mins}`;
-  
+
   let dateString = "";
-  let df = simpleSettings.get("dateFormat");
+  let df = parseInt(simpleSettings.get("dateFormat"));
   
   if(df !== null && df != 0){
     let dayName = days[today.getDay()];
