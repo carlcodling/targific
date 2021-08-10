@@ -52,7 +52,7 @@ let dateActive = true;
 let secondsActive = true;
 let heartRateActive = true;
 
-const TEXT_LIGHTEN_PERCENT = 50;
+const TEXT_LIGHTEN_AMOUNT = 80;
 
 /* -------- SETTINGS -------- */
 function settingsCallback(data) {
@@ -62,24 +62,24 @@ function settingsCallback(data) {
   // set colours of the stat arcs
   if (data.colorCalories) {
     setFillByClass("statItem", data.colorCalories, containerCalories);
-    txtCalorieCount.style.fill = util.shadeColor(data.colorCalories,TEXT_LIGHTEN_PERCENT);
+    txtCalorieCount.style.fill = util.shadeColor(data.colorCalories,TEXT_LIGHTEN_AMOUNT);
     document.getElementById("bg").style.fill = data.colorCalories; // match bg to outer arc
   }
   if (data.colorSteps) {
     setFillByClass("statItem", data.colorSteps, containerSteps);
-    txtStepsCount.style.fill = util.shadeColor(data.colorSteps,TEXT_LIGHTEN_PERCENT);
+    txtStepsCount.style.fill = util.shadeColor(data.colorSteps,TEXT_LIGHTEN_AMOUNT);
   }
   if (data.colorDistance) {
     setFillByClass("statItem", data.colorDistance, containerDistance);
-    txtDistance.style.fill = util.shadeColor(data.colorDistance,TEXT_LIGHTEN_PERCENT);
+    txtDistance.style.fill = util.shadeColor(data.colorDistance,TEXT_LIGHTEN_AMOUNT);
   }
   if (data.colorAZ) {
     setFillByClass("statItem", data.colorAZ, containerAZ);
-    txtActiveZone.style.fill = util.shadeColor(data.colorAZ,TEXT_LIGHTEN_PERCENT);
+    txtActiveZone.style.fill = util.shadeColor(data.colorAZ,TEXT_LIGHTEN_AMOUNT);
   }
   if (data.colorFloors) {
     setFillByClass("statItem", data.colorFloors, containerFloors);
-    txtFloors.style.fill = util.shadeColor(data.colorFloors,TEXT_LIGHTEN_PERCENT);
+    txtFloors.style.fill = util.shadeColor(data.colorFloors,TEXT_LIGHTEN_AMOUNT);
   }
 
   // set clock colour
