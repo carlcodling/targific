@@ -6,6 +6,8 @@ import * as simpleHRM from "./simple/hrm";
 import * as simpleBattery from "./simple/battery";
 import * as simpleSettings from "./simple/device-settings";
 
+import * as util from "../common/utils";
+
 // clock elements
 const uiTime = document.getElementById("time");
 const uiSecs = document.getElementById("secs");
@@ -50,6 +52,8 @@ let dateActive = true;
 let secondsActive = true;
 let heartRateActive = true;
 
+const TEXT_LIGHTEN_PERCENT = 50;
+
 /* -------- SETTINGS -------- */
 function settingsCallback(data) {
   if (!data) {
@@ -58,24 +62,24 @@ function settingsCallback(data) {
   // set colours of the stat arcs
   if (data.colorCalories) {
     setFillByClass("statItem", data.colorCalories, containerCalories);
-    txtCalorieCount.style.fill = data.colorCalories;
-    document.getElementById("bg").style.fill = data.colorCalories;
+    txtCalorieCount.style.fill = util.shadeColor(data.colorCalories,TEXT_LIGHTEN_PERCENT);
+    document.getElementById("bg").style.fill = data.colorCalories; // match bg to outer arc
   }
   if (data.colorSteps) {
     setFillByClass("statItem", data.colorSteps, containerSteps);
-    txtStepsCount.style.fill = data.colorSteps;
+    txtStepsCount.style.fill = util.shadeColor(data.colorSteps,TEXT_LIGHTEN_PERCENT);
   }
   if (data.colorDistance) {
     setFillByClass("statItem", data.colorDistance, containerDistance);
-    txtDistance.style.fill = data.colorDistance;
+    txtDistance.style.fill = util.shadeColor(data.colorDistance,TEXT_LIGHTEN_PERCENT);
   }
   if (data.colorAZ) {
     setFillByClass("statItem", data.colorAZ, containerAZ);
-    txtActiveZone.style.fill = data.colorAZ;
+    txtActiveZone.style.fill = util.shadeColor(data.colorAZ,TEXT_LIGHTEN_PERCENT);
   }
   if (data.colorFloors) {
     setFillByClass("statItem", data.colorFloors, containerFloors);
-    txtFloors.style.fill = data.colorFloors;
+    txtFloors.style.fill = util.shadeColor(data.colorFloors,TEXT_LIGHTEN_PERCENT);
   }
 
   // set clock colour
