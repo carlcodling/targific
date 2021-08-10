@@ -177,7 +177,7 @@ function batteryCallback(data) {
   }
   else{
     batcharge.style.opacity = 0;
-    batlevindicator.width = Math.round(data.level*0.31)
+    batlevindicator.width = Math.round(data.level*0.24)
   }
   let batColor;
   if(data.level > 50){

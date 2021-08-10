@@ -22,10 +22,10 @@
     <image id="heart" href="img/heart.png" x="0" y="0" width="18" height="18" fill="#d32f2f" class="hrm" /><text id="hr" class="hrm" />
   </section>
   <section id="battery">
-    <image id="batteryIm" href="img/battery.png" x="0" y="0" width="42" height="18" class="battery" />
-    <image id="batcharge" href="img/battery-charging.png" x="0" y="0" width="42" height="18" class="battery" opacity="0" />
-    <rect x="4" y="3" width="30" height="12" class="battery" id="batlevindicator" />
-    <text id="batlev" class="battery"/>
+    <image id="batteryIm" href="img/battery2.png" x="5" y="0" width="32" height="16" class="battery" />
+    <image id="batcharge" href="img/battery-charging.png" x="5" y="0" width="32" height="16" class="battery" opacity="0" />
+    <rect x="8" y="3" width="24" height="10" class="battery" id="batlevindicator" />
+    <text id="batlev" class="clock"/>
   </section>
   <section id="statsContainer">
     <use href="#arcs" fill="#e91e63" id="calories">

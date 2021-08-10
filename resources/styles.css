@@ -19,7 +19,7 @@
   text-anchor: start;
   x: 140;
   y: 45;
-  opacity:0.3;
+  opacity:0.4;
 }
 #date{
   font-size: 18;
@@ -78,7 +78,7 @@
 }
 .battery{
   fill: #ffffff;
-  opacity:0.8;
+  opacity:0.7;
 }
 .hide{
   opacity:0;
