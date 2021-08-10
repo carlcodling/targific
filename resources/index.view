@@ -10,13 +10,14 @@
       <line id="line2" x1="158" x2="158" fill="inherit" stroke-width="1" class="statItem" />
     </symbol>
   </defs>
+  <rect width="100%" height="100%" id="bg" />
   <gradientRect width="100%" height="100%"
     gradient-type="linear"
     gradient-x1="50" gradient-y1="0"
     gradient-x2="50%" gradient-y2="0"
-    gradient-color1="#000000" gradient-color2="#323232" />
-  <text id="time" /><text id="secs" />
-  <text id="date" />
+    gradient-color1="#000000" gradient-color2="#212121" opacity="0.9" />
+  <text id="time" class="clock" /><text id="secs" class="clock" />
+  <text id="date" class="clock" />
   <section id="heartRate">
     <image id="heart" href="img/heart.png" x="0" y="0" width="18" height="18" fill="#d32f2f" class="hrm" /><text id="hr" class="hrm" />
   </section>

@@ -33,7 +33,7 @@ function sendValue(key, val) {
   }
 }
 
-function setup(){
+export function setup(){
   let defaults = defaultSettings;
   for (const key in defaults) {
     settingsStorage.setItem(key, JSON.stringify(defaults[key]));

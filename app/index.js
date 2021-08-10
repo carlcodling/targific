@@ -59,6 +59,7 @@ function settingsCallback(data) {
   if (data.colorCalories) {
     setFillByClass("statItem", data.colorCalories, containerCalories);
     txtCalorieCount.style.fill = data.colorCalories;
+    document.getElementById("bg").style.fill = data.colorCalories;
   }
   if (data.colorSteps) {
     setFillByClass("statItem", data.colorSteps, containerSteps);
@@ -75,6 +76,12 @@ function settingsCallback(data) {
   if (data.colorFloors) {
     setFillByClass("statItem", data.colorFloors, containerFloors);
     txtFloors.style.fill = data.colorFloors;
+  }
+
+  // set clock colour
+  if (data.colorClock) {
+    setFillByClass("clock", data.colorClock);
+    uiHR.style.fill = data.colorClock;
   }
 
   // show or hide seconds on clock + reset
@@ -112,6 +119,12 @@ function settingsCallback(data) {
     heartRateActive = false;
   }
 
+  var x = document.getElementsByTypeName("arcBG");
+  var i;
+  for (i = 0; i < x.length; i++) {
+    x[i].style.opacity = data.glow/10;
+  }
+  console.log(JSON.stringify(data, null, 2))
 }
 simpleSettings.initialize(settingsCallback);
 
@@ -141,7 +154,7 @@ simpleClock.initialize(granularity, clockCallback);
 function hrmCallback(data) {
   uiHR.text = `${data.bpm}`;
   if (data.zone === "out-of-range") {
-    imgHeart.style.fill = "#cccccc";
+    imgHeart.style.fill = simpleSettings.get("colorClock");
   } else {
     imgHeart.style.fill = "#d32f2f";
   }
@@ -164,7 +177,7 @@ function batteryCallback(data) {
   }
   let batColor;
   if(data.level > 50){
-    batColor = "#cccccc";
+    batColor = simpleSettings.get("colorClock");
   }
   else if(data.level <=50 && data.level >25){
     batColor = "#ffeb3b";

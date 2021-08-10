@@ -1,12 +1,14 @@
 export const defaultSettings = {
-  "colorCalories": "#e91e63",
-  "colorSteps": "#536dfe",
+  "colorClock": "#ffe0b2",
+  "colorCalories": "#03a9f4",
+  "colorSteps": "#673ab7",
   "colorDistance": "#cddc39",
-  "colorAZ": "#00796b",
-  "colorFloors": "#9C27B0",
+  "colorAZ": "#009688",
+  "colorFloors": "#9c27b0",
   "dateFormat": 2,
   "displaySeconds": true,
   "displayHR": true,
   "displayBattery": true,
+  "glow": 2,
   "df": {"selected":[2]}
 }
