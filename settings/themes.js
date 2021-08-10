@@ -75,6 +75,72 @@ export const themes = [
     "colorAZ": "#00bcd4",
     "colorFloors": "#03a9f4"
     }
+  },
+  {
+  "name":"Mixed 1",
+  "values":{
+    "colorClock": "#dedede",
+    "colorCalories": "#8bc34a",
+    "colorSteps": "#9c27b0",
+    "colorDistance": "#ff5722",
+    "colorAZ": "#00bcd4",
+    "colorFloors": "#ffc107"
+    }
+  },
+  {
+  "name":"Mixed 2",
+  "values":{
+    "colorClock": "#ffecb3",
+    "colorCalories": "#00bcd4",
+    "colorSteps": "#4caf50",
+    "colorDistance": "#ff5722",
+    "colorAZ": "#2196f3",
+    "colorFloors": "#ff9800"
+    }
+  },
+  {
+  "name":"Mixed 3",
+  "values":{
+    "colorClock": "#f8bbd0",
+    "colorCalories": "#673ab7",
+    "colorSteps": "#ff9800",
+    "colorDistance": "#9c27b0",
+    "colorAZ": "#ffc107",
+    "colorFloors": "#e91e63"
+    }
+  },
+  {
+  "name":"Mixed 4",
+  "values":{
+    "colorClock": "#b2ebf2",
+    "colorCalories": "#3f51b5",
+    "colorSteps": "#009688",
+    "colorDistance": "#2196f3",
+    "colorAZ": "#4caf50",
+    "colorFloors": "#00bcd4"
+    }
+  },
+  {
+  "name":"Blue Highlight",
+  "values":{
+    "colorClock": "#b2dfdb",
+    "colorCalories": "#03a9f4",
+    "colorSteps": "#3f51b5",
+    "colorDistance": "#3f51b5",
+    "colorAZ": "#3f51b5",
+    "colorFloors": "#3f51b5"
+    }
+  },
+  {
+  "name":"Green with Yellow Highlight",
+  "values":{
+    "colorClock": "#fff9c4",
+    "colorCalories": "#009688",
+    "colorSteps": "#cddc39",
+    "colorDistance": "#009688",
+    "colorAZ": "#009688",
+    "colorFloors": "#009688"
+    }
   }
 
 ]
