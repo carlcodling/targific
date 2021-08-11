@@ -103,11 +103,13 @@ function settingsCallback(data) {
   if (data.displayBattery && !batteryActive){
     simpleBattery.initialize(batteryCallback);
     setVisibiltyByClass("battery", "visible");
+    batlev.style.visibility = "visible";
     batteryActive = true;
   }
   else if (!data.displayBattery && batteryActive){
     simpleBattery.stop();
     setVisibiltyByClass("battery", "hidden");
+    batlev.style.visibility = "hidden";
     batteryActive = false;
   }
 
