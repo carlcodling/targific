@@ -121,6 +121,17 @@ export const themes = [
     }
   },
   {
+  "name":"Mixed 5",
+  "values":{
+    "colorClock": "#dedede",
+    "colorCalories": "#673ab7",
+    "colorSteps": "#9c27b0",
+    "colorDistance": "#cddc39",
+    "colorAZ": "#009688",
+    "colorFloors": "#03a9f4"
+    }
+  },
+  {
   "name":"Blue Highlight",
   "values":{
     "colorClock": "#b2dfdb",
@@ -142,5 +153,4 @@ export const themes = [
     "colorFloors": "#009688"
     }
   }
-
 ]
