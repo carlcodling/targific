@@ -10,5 +10,6 @@ export const defaultSettings = {
   "displayHR": true,
   "displayBattery": true,
   "glow": 2,
-  "df": {"selected":[2]}
+  "df": {"selected":[2]},
+  "theme": 0
 }
