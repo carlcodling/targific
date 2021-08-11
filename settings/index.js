@@ -93,20 +93,36 @@ function mySettings(props) {
           settingsKey="displayBattery"
           label="Show battery?"
         />
-        <Slider
-          label="Glow"
-          settingsKey="glow"
-          min="0"
-          max="3"
-        />
-
 
       </Section>
       <Section
-        title={<Text bold align="center">Clock Colour</Text>}>
+        title={<Text bold align="center">Theme Settings</Text>}>
+        <Text>
+          Select a preconfigured theme or build your own using the various options below.
+        </Text>
+        <Text>
+          <Text  italic>* Tip: Start with a preconfigured theme and then make minor adjustments.</Text>
+        </Text>
+
+      </Section>
+      <Select
+        label={`Theme`}
+        settingsKey="theme"
+        options={themeTitles}
+        onSelection={(selection) => setTheme(selection.selected)}
+      />
+      <Slider
+        label="Glow"
+        settingsKey="glow"
+        min="0"
+        max="3"
+      />
+      <Section
+        title={`Clock Colour`}>
         <ColorSelect
           settingsKey="colorClock"
           colors={fgColorSet}
+          onSelection={(value) => props.settingsStorage.removeItem("theme")}
         />
       </Section>
       {options.map(([title, settingsKey]) =>
@@ -114,16 +130,10 @@ function mySettings(props) {
           title={title}>
           <ColorSelect
             settingsKey={settingsKey}
-            colors={activityColorSet} />
+            colors={activityColorSet}
+            onSelection={(value) => props.settingsStorage.removeItem("theme")} />
         </Section>
       )}
-      <Select
-        label={`Theme`}
-        settingsKey="theme"
-        options={themeTitles}
-        onSelection={(selection) => setTheme(selection.selected)}
-      />
-
 
     </Page>
   );
