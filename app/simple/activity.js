@@ -7,6 +7,8 @@ import clock from "clock";
 import { today, goals } from "user-activity";
 import { units } from "user-settings";
 
+import * as util from "../../common/utils";
+
 let activityCallback;
 
 export function initialize(callback) {
@@ -46,7 +48,18 @@ function getActiveMinutes() {
   return {
     raw: val,
     goal: goal,
-    pretty: (val < 60 ? "" : Math.floor(val/60) + "h,") + ("0" + (val%60)).slice("-2") + "m"
+    pretty: prettyActiveMins(val)
+  }
+}
+
+function prettyActiveMins(val){
+  if(val <60){
+    return val+" min"
+  }
+  else {
+    let h = Math.floor(val/60);
+    let m = val%60;
+    return h + " hr, " + m + " min"
   }
 }
 
@@ -56,7 +69,7 @@ function getCalories() {
   return {
     raw: val,
     goal: goal,
-    pretty: (val > 999 ? Math.floor(val/1000) + "," + ("00"+(val%1000)).slice(-3) : val) + "kcal"
+    pretty: (val > 999 ? Math.floor(val/1000) + "," + ("00"+(val%1000)).slice(-3) : val) + " kcal"
   }
 }
 
@@ -71,7 +84,7 @@ function getDistance() {
   return {
     raw: val,
     goal: goal,
-    pretty: `${val.toFixed(2)}${u}`
+    pretty: `${val.toFixed(2)} ${u}`
   }
 }
 
