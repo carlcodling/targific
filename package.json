@@ -6,7 +6,7 @@
   "fitbit": {
     "appUUID": "59aa744a-0dd5-4479-843d-8e41f8199c2f",
     "appType": "clockface",
-    "appDisplayName": "Targitsy",
+    "appDisplayName": "Targific",
     "iconFile": "resources/icon.png",
     "wipeColor": "",
     "requestedPermissions": [
@@ -20,7 +20,7 @@
     ],
     "i18n": {
       "en-US": {
-        "name": "Targitsy"
+        "name": "Targific"
       }
     },
     "defaultLanguage": "en-US"
