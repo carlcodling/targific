@@ -130,7 +130,6 @@ function settingsCallback(data) {
   for (i = 0; i < x.length; i++) {
     x[i].style.opacity = data.glow/10;
   }
-  console.log(JSON.stringify(data, null, 2))
 }
 simpleSettings.initialize(settingsCallback);
 
