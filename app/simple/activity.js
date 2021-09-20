@@ -79,6 +79,7 @@ function getDistance() {
   let u = "km";
   if(units.distance === "us") {
     val *= 0.621371;
+    goal *= 0.621371;
     u = "mi";
   }
   return {
